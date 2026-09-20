@@ -1,0 +1,11 @@
+const users = [
+  { id: 1, name: 'A' },
+  { id: 1, name: 'A' },
+  { id: 2, name: 'B' }
+]
+
+const uniqueUsers = Array.from(
+  new Map(users.map(user => [user.id, user])).values()
+)
+||
+const unique = [...new Set(values)]
