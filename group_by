@@ -1,0 +1,10 @@
+const messages = [
+  { platform: 'sms', count: 5 },
+  { platform: 'email', count: 3 },
+  { platform: 'sms', count: 2 }
+]
+
+const result = messages.reduce<Record<string, number>>((acc, item) => {
+  acc[item.platform] = (acc[item.platform] ?? 0) + item.count
+  return acc
+}, {})
