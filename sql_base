@@ -1,0 +1,38 @@
+Find all users and their total order amount.
+
+Users
+- id
+- name
+
+Orders
+- id
+- user_id
+- amount
+
+SELECT
+  u.id,
+  u.name,
+  SUM(o.amount) AS total_amount
+FROM Users u
+LEFT JOIN Orders o
+  ON u.id = o.user_id
+GROUP BY
+  u.id,
+  u.name;
+
+SELECT *
+FROM Users
+ORDER BY id
+LIMIT 20
+OFFSET 0;
+
+SELECT *
+FROM Users
+WHERE name LIKE '%alice%';
+
+CREATE TABLE customers (
+  id BIGINT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  created_at TIMESTAMP NOT NULL
+);
